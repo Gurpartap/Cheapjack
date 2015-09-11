@@ -10,6 +10,7 @@
 		AE89568A1BA268C900017AF2 /* Cheapjack.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8956891BA268C900017AF2 /* Cheapjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE8956911BA268C900017AF2 /* Cheapjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8956861BA268C900017AF2 /* Cheapjack.framework */; settings = {ASSET_TAGS = (); }; };
 		AE8956961BA268C900017AF2 /* CheapjackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8956951BA268C900017AF2 /* CheapjackTests.swift */; };
+		AE8956F91BA26B7300017AF2 /* Cheapjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8956F81BA26B7300017AF2 /* Cheapjack.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		AE8956901BA268C900017AF2 /* CheapjackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheapjackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8956951BA268C900017AF2 /* CheapjackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapjackTests.swift; sourceTree = "<group>"; };
 		AE8956971BA268C900017AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE8956F81BA26B7300017AF2 /* Cheapjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cheapjack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8956891BA268C900017AF2 /* Cheapjack.h */,
+				AE8956F81BA26B7300017AF2 /* Cheapjack.swift */,
 				AE89568B1BA268C900017AF2 /* Info.plist */,
 			);
 			path = Cheapjack;
@@ -142,6 +145,7 @@
 		AE89567D1BA268C900017AF2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Gurpartap Singh";
 				TargetAttributes = {
@@ -193,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8956F91BA26B7300017AF2 /* Cheapjack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +312,7 @@
 		AE89569B1BA268C900017AF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -317,12 +323,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gurpartap.Cheapjack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AE89569C1BA268C900017AF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -375,6 +383,7 @@
 				AE89569C1BA268C900017AF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE89569D1BA268C900017AF2 /* Build configuration list for PBXNativeTarget "CheapjackTests" */ = {
 			isa = XCConfigurationList;
@@ -383,6 +392,7 @@
 				AE89569F1BA268C900017AF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
