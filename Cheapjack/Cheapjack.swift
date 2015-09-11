@@ -22,22 +22,22 @@
 
 import Foundation
 
-public let Cheapjack = CheapjackManager(backgroundSessionIdentifier: CheapjackDefaults.backgroundSessionIdentifier)
+public let Cheapjack = CheapjackManager(backgroundSessionIdentifier: CheapjackConstants.defaultBackgroundSessionIdentifier)
 
-struct CheapjackDefaults {
-	static let backgroundSessionIdentifier = "com.gurpartap.Cheapjack"
+private struct CheapjackConstants {
+	static let defaultBackgroundSessionIdentifier = "com.gurpartap.Cheapjack"
 	static let downloadsLockQueueIdentifier = "com.gurpartap.Cheapjack.DownloadsLockQueue"
 }
 
 public protocol CheapjackManagerDelegate: class {
 	func cheapjack(manager: CheapjackManager, failedToMoveFileForDownload: CheapjackDownload, error: NSError)
-	func cheapjack(manager: CheapjackManager, cancelledDownload: CheapjackDownload, error: NSError?)
+	func cheapjack(manager: CheapjackManager, completedDownload: CheapjackDownload, error: NSError?)
 	func cheapjack(manager: CheapjackManager, receivedChallengeForDownload: CheapjackDownload, challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void)
 	func cheapjack(manager: CheapjackManager, backgroundSessionBecameInvalidWithError: NSError?)
 }
 
 public protocol CheapjackDownloadDelegate: class {
-	func download(download: CheapjackDownload, stateChanged lastState: CheapjackDownloadState, state: CheapjackDownloadState)
+	func download(download: CheapjackDownload, stateChanged toState: CheapjackDownloadState, fromState: CheapjackDownloadState)
 	func download(download: CheapjackDownload, progressChanged fractionCompleted: Float, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
 }
 
@@ -46,7 +46,7 @@ public enum CheapjackDownloadState {
 	case Unknown
 
 	case Waiting
-	case Running
+	case Downloading
 	case Pausing
 	case Paused
 	case Completed
@@ -55,11 +55,11 @@ public enum CheapjackDownloadState {
 	case Cancelled
 }
 
-public struct CheapjackDownload {
+public class CheapjackDownload: NSObject {
 
 	private let manager: CheapjackManager
 
-	private weak var delegate: CheapjackDownloadDelegate?
+	public weak var delegate: CheapjackDownloadDelegate?
 
 	private var downloadTask: NSURLSessionDownloadTask?
 
@@ -69,7 +69,7 @@ public struct CheapjackDownload {
 			lastState = state
 		}
 		didSet {
-			delegate?.download(self, stateChanged: lastState, state: state)
+			delegate?.download(self, stateChanged: state, fromState: lastState)
 		}
 	}
 
@@ -87,6 +87,8 @@ public struct CheapjackDownload {
 	}
 
 	public var url: NSURL
+	public var resumeData: NSData?
+
 	public var fractionCompleted: Float = 0
 
 	private init(url: NSURL, manager: CheapjackManager) {
@@ -100,30 +102,37 @@ public struct CheapjackDownload {
 
 	// MARK:- CheapjackDownload public methods
 
-	public mutating func resume() {
+	public func resume() {
+		if let resumeData = resumeData {
+			downloadTask?.cancel()
+			downloadTask = manager.backgroundSession.downloadTaskWithResumeData(resumeData)
+			self.resumeData = nil
+		}
+
 		if downloadTask == nil {
 			downloadTask = manager.backgroundSession.downloadTaskWithURL(url)
 		}
 
-		downloadTask?.resume()
 		state = .Waiting
+		downloadTask?.resume()
 	}
 
 	// Returns resume data
-	public mutating func pause(completionHandler: (NSData? -> Void)? = nil) {
+	public func pause(completionHandler: (NSData? -> Void)? = nil) {
 		state = .Pausing
 		downloadTask?.cancelByProducingResumeData({ (data) -> Void in
 			self.state = .Paused
+			self.resumeData = data
 			completionHandler?(data)
 		})
 	}
 
-	public mutating func cancel() {
+	public func cancel() {
 		downloadTask?.cancel()
 		state = .Cancelled
 	}
 
-	public mutating func remove() {
+	public func remove() {
 		cancel()
 
 		dispatch_sync(manager.downloadsLockQueue) {
@@ -164,7 +173,7 @@ public class CheapjackManager: NSObject, NSURLSessionDownloadDelegate, NSURLSess
 
 	public required init(backgroundSessionIdentifier: String) {
 		self.downloads = Array<CheapjackDownload>()
-		self.downloadsLockQueue = dispatch_queue_create(CheapjackDefaults.downloadsLockQueueIdentifier, nil)
+		self.downloadsLockQueue = dispatch_queue_create(CheapjackConstants.downloadsLockQueueIdentifier, nil)
 		self.backgroundSessionIdentifier = backgroundSessionIdentifier
 
 		super.init()
@@ -172,13 +181,13 @@ public class CheapjackManager: NSObject, NSURLSessionDownloadDelegate, NSURLSess
 
 	private func newBackgroundURLSession() -> NSURLSession {
 		let backgroundSessionConfiguration = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(backgroundSessionIdentifier)
-		return NSURLSession(configuration: backgroundSessionConfiguration, delegate: nil, delegateQueue: nil)
+		return NSURLSession(configuration: backgroundSessionConfiguration, delegate: self, delegateQueue: nil)
 	}
 
 	private func handleDownloadTaskWithProgress(downloadTask: NSURLSessionDownloadTask, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-		if var download = getDownloadFromTask(downloadTask) {
-			if download.state != .Running {
-				download.state = .Running
+		if let download = getDownloadFromTask(downloadTask) {
+			if download.state != .Downloading {
+				download.state = .Downloading
 			}
 
 			download.totalBytesExpectedToWrite = totalBytesExpectedToWrite
@@ -188,6 +197,7 @@ public class CheapjackManager: NSObject, NSURLSessionDownloadDelegate, NSURLSess
 
 	private func getDownloadFromTask(task: NSURLSessionTask) -> CheapjackDownload? {
 		var download: CheapjackDownload?
+
 		if let url = task.originalRequest?.URL {
 			dispatch_sync(downloadsLockQueue) {
 				if let foundAtIndex = self.downloads.indexOf({ $0.url == url }) {
@@ -195,12 +205,13 @@ public class CheapjackManager: NSObject, NSURLSessionDownloadDelegate, NSURLSess
 				}
 			}
 		}
+
 		return download
 	}
 
 	// MARK:- Cheapjack public methods
 
-	public func downloadWithURL(url: NSURL, delegate: CheapjackDownloadDelegate) -> CheapjackDownload {
+	public func downloadWithURL(url: NSURL, delegate: CheapjackDownloadDelegate?, resumeData: NSData? = nil) -> CheapjackDownload {
 		var download = CheapjackDownload(url: url, manager: self)
 
 		dispatch_sync(downloadsLockQueue) {
@@ -212,47 +223,40 @@ public class CheapjackManager: NSObject, NSURLSessionDownloadDelegate, NSURLSess
 		}
 
 		download.delegate = delegate
+		download.resumeData = resumeData
 
 		return download
 	}
 
 	public func resumeAll() {
 		dispatch_sync(downloadsLockQueue) {
-			_ = self.downloads.map { (var download) in
-				download.resume()
-			}
+			_ = self.downloads.map { $0.resume() }
 		}
 	}
 
 	public func pauseAll() {
 		dispatch_sync(downloadsLockQueue) {
-			_ = self.downloads.map { (var download) in
-				download.pause()
-			}
+			_ = self.downloads.map { $0.pause() }
 		}
 	}
 
 	public func cancelAll() {
 		dispatch_sync(downloadsLockQueue) {
-			_ = self.downloads.map { (var download) in
-				download.cancel()
-			}
+			_ = self.downloads.map { $0.cancel() }
 		}
 	}
 
 	public func removeAll() {
 		dispatch_sync(downloadsLockQueue) {
-			for (index, var download) in self.downloads.enumerate() {
-				download.cancel()
-				self.downloads.removeAtIndex(index)
-			}
+			_ = self.downloads.map { $0.cancel() }
+			self.downloads.removeAll()
 		}
 	}
 
 	// MARK:- NSURLSessionDownloadDelegate
 
 	public func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-		if var download = getDownloadFromTask(downloadTask) {
+		if let download = getDownloadFromTask(downloadTask) {
 			download.state = .Completed
 			if let moveTo = downloadCompletionHandler?(download, session, location) {
 				do {
@@ -282,7 +286,7 @@ public class CheapjackManager: NSObject, NSURLSessionDownloadDelegate, NSURLSess
 
 	public func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
 		if let download = getDownloadFromTask(task) {
-			delegate?.cheapjack(self, cancelledDownload: download, error: error)
+			delegate?.cheapjack(self, completedDownload: download, error: error)
 		}
 	}
 
