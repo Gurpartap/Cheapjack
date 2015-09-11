@@ -1,4 +1,4 @@
-// ViewController.swift
+// DownloadsTableViewCell.swift
 //
 // Copyright (c) 2015 Gurpartap Singh
 //
@@ -22,18 +22,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DownloadsCell: UITableViewCell {
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+	@IBOutlet var infoLabel: UILabel!
+	@IBOutlet var stateLabel: UILabel!
+	@IBOutlet var progressLabel: UILabel!
+	@IBOutlet var actionButton: UIButton!
+	@IBOutlet var progressView: UIProgressView!
+
+    override func awakeFromNib() {
+		super.awakeFromNib()
+		reset()
 	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		reset()
 	}
 
+	func reset() {
+		infoLabel?.text = ""
+		stateLabel?.text = ""
+		progressLabel?.text = ""
+
+		// Both are necessary for changing title without undesired animation.
+		actionButton?.titleLabel?.text = DownloadsCellAction.Download.rawValue
+		actionButton?.setTitle(DownloadsCellAction.Download.rawValue, forState: .Normal)
+
+		progressView?.progress = 0
+    }
 
 }
-
