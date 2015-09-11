@@ -58,7 +58,7 @@ Add the following to your [Cartfile](https://github.com/Carthage/Carthage/blob/m
 github "Gurpartap/Cheapjack"
 ```
 
-Run `carthage update` and follow the [adding framework instructions in Carthage's README](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
+Run `carthage update --platform iOS` and follow the [adding framework instructions in Carthage's README](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
 
 #### Manual Installation
 
