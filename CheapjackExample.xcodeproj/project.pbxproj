@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE8956D91BA26A7900017AF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8956D81BA26A7900017AF2 /* AppDelegate.swift */; };
+		AE8956DB1BA26A7900017AF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8956DA1BA26A7900017AF2 /* ViewController.swift */; };
+		AE8956DE1BA26A7900017AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8956DC1BA26A7900017AF2 /* Main.storyboard */; };
+		AE8956E01BA26A7900017AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8956DF1BA26A7900017AF2 /* Assets.xcassets */; };
+		AE8956E31BA26A7900017AF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8956E11BA26A7900017AF2 /* LaunchScreen.storyboard */; };
+		AE8956EE1BA26A7A00017AF2 /* CheapjackExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8956ED1BA26A7A00017AF2 /* CheapjackExampleUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE8956EA1BA26A7A00017AF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE8956CD1BA26A7900017AF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE8956D41BA26A7900017AF2;
+			remoteInfo = CheapjackExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE8956D51BA26A7900017AF2 /* CheapjackExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapjackExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8956D81BA26A7900017AF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE8956DA1BA26A7900017AF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE8956DD1BA26A7900017AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE8956DF1BA26A7900017AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE8956E21BA26A7900017AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE8956E41BA26A7900017AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE8956E91BA26A7A00017AF2 /* CheapjackExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheapjackExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8956ED1BA26A7A00017AF2 /* CheapjackExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapjackExampleUITests.swift; sourceTree = "<group>"; };
+		AE8956EF1BA26A7A00017AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE8956D21BA26A7900017AF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8956E61BA26A7A00017AF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE8956CC1BA26A7900017AF2 = {
+			isa = PBXGroup;
+			children = (
+				AE8956D71BA26A7900017AF2 /* CheapjackExample */,
+				AE8956EC1BA26A7A00017AF2 /* CheapjackExampleUITests */,
+				AE8956D61BA26A7900017AF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE8956D61BA26A7900017AF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE8956D51BA26A7900017AF2 /* CheapjackExample.app */,
+				AE8956E91BA26A7A00017AF2 /* CheapjackExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE8956D71BA26A7900017AF2 /* CheapjackExample */ = {
+			isa = PBXGroup;
+			children = (
+				AE8956D81BA26A7900017AF2 /* AppDelegate.swift */,
+				AE8956DA1BA26A7900017AF2 /* ViewController.swift */,
+				AE8956DC1BA26A7900017AF2 /* Main.storyboard */,
+				AE8956DF1BA26A7900017AF2 /* Assets.xcassets */,
+				AE8956E11BA26A7900017AF2 /* LaunchScreen.storyboard */,
+				AE8956E41BA26A7900017AF2 /* Info.plist */,
+			);
+			path = CheapjackExample;
+			sourceTree = "<group>";
+		};
+		AE8956EC1BA26A7A00017AF2 /* CheapjackExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AE8956ED1BA26A7A00017AF2 /* CheapjackExampleUITests.swift */,
+				AE8956EF1BA26A7A00017AF2 /* Info.plist */,
+			);
+			path = CheapjackExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE8956D41BA26A7900017AF2 /* CheapjackExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8956F21BA26A7A00017AF2 /* Build configuration list for PBXNativeTarget "CheapjackExample" */;
+			buildPhases = (
+				AE8956D11BA26A7900017AF2 /* Sources */,
+				AE8956D21BA26A7900017AF2 /* Frameworks */,
+				AE8956D31BA26A7900017AF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CheapjackExample;
+			productName = CheapjackExample;
+			productReference = AE8956D51BA26A7900017AF2 /* CheapjackExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE8956E81BA26A7A00017AF2 /* CheapjackExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8956F51BA26A7A00017AF2 /* Build configuration list for PBXNativeTarget "CheapjackExampleUITests" */;
+			buildPhases = (
+				AE8956E51BA26A7A00017AF2 /* Sources */,
+				AE8956E61BA26A7A00017AF2 /* Frameworks */,
+				AE8956E71BA26A7A00017AF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE8956EB1BA26A7A00017AF2 /* PBXTargetDependency */,
+			);
+			name = CheapjackExampleUITests;
+			productName = CheapjackExampleUITests;
+			productReference = AE8956E91BA26A7A00017AF2 /* CheapjackExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE8956CD1BA26A7900017AF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Gurpartap Singh";
+				TargetAttributes = {
+					AE8956D41BA26A7900017AF2 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					AE8956E81BA26A7A00017AF2 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = AE8956D41BA26A7900017AF2;
+					};
+				};
+			};
+			buildConfigurationList = AE8956D01BA26A7900017AF2 /* Build configuration list for PBXProject "CheapjackExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE8956CC1BA26A7900017AF2;
+			productRefGroup = AE8956D61BA26A7900017AF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE8956D41BA26A7900017AF2 /* CheapjackExample */,
+				AE8956E81BA26A7A00017AF2 /* CheapjackExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE8956D31BA26A7900017AF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8956E31BA26A7900017AF2 /* LaunchScreen.storyboard in Resources */,
+				AE8956E01BA26A7900017AF2 /* Assets.xcassets in Resources */,
+				AE8956DE1BA26A7900017AF2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8956E71BA26A7A00017AF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE8956D11BA26A7900017AF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8956DB1BA26A7900017AF2 /* ViewController.swift in Sources */,
+				AE8956D91BA26A7900017AF2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8956E51BA26A7A00017AF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8956EE1BA26A7A00017AF2 /* CheapjackExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE8956EB1BA26A7A00017AF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE8956D41BA26A7900017AF2 /* CheapjackExample */;
+			targetProxy = AE8956EA1BA26A7A00017AF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AE8956DC1BA26A7900017AF2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE8956DD1BA26A7900017AF2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE8956E11BA26A7900017AF2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE8956E21BA26A7900017AF2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE8956F01BA26A7A00017AF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE8956F11BA26A7A00017AF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE8956F31BA26A7A00017AF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CheapjackExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gurpartap.CheapjackExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AE8956F41BA26A7A00017AF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CheapjackExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gurpartap.CheapjackExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AE8956F61BA26A7A00017AF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CheapjackExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gurpartap.CheapjackExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CheapjackExample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		AE8956F71BA26A7A00017AF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CheapjackExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gurpartap.CheapjackExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CheapjackExample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE8956D01BA26A7900017AF2 /* Build configuration list for PBXProject "CheapjackExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8956F01BA26A7A00017AF2 /* Debug */,
+				AE8956F11BA26A7A00017AF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE8956F21BA26A7A00017AF2 /* Build configuration list for PBXNativeTarget "CheapjackExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8956F31BA26A7A00017AF2 /* Debug */,
+				AE8956F41BA26A7A00017AF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AE8956F51BA26A7A00017AF2 /* Build configuration list for PBXNativeTarget "CheapjackExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8956F61BA26A7A00017AF2 /* Debug */,
+				AE8956F71BA26A7A00017AF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE8956CD1BA26A7900017AF2 /* Project object */;
+}
