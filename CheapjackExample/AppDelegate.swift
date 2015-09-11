@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import Cheapjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
 		return true
+	}
+
+	func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void) {
+		Cheapjack.downloadCompletionHandler = { (download, session, location) -> NSURL? in
+			// Return NSURL of location to move the downloaded file to.
+			// Or do it manually and return nil.
+			return nil
+		}
+		Cheapjack.backgroundSessionCompletionHandler = completionHandler
 	}
 
 	func applicationWillResignActive(application: UIApplication) {
